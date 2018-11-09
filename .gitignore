@@ -109,3 +109,6 @@ ENV/
 logs/
 data/
 exp/
+
+# Mac
+.DS_STORE
