@@ -1,9 +1,7 @@
-# MuseGAN
-
-[MuseGAN](https://salu133445.github.io/musegan/) is a project on music
-generation. In a nutshell, we aim to generate polyphonic music of multiple
-tracks (instruments). The proposed models are able to generate music either from
-scratch, or by accompanying a track given a priori by the user.
+# Conditional- MuseGAN
+ 
+An investigation of using various conditional parameters for musical generation, based on:
+[MuseGAN](https://salu133445.github.io/musegan/)  
 
 We train the model with training data collected from
 [Lakh Pianoroll Dataset](https://salu133445.github.io/lakh-pianoroll-dataset/)
