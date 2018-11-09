@@ -8,8 +8,7 @@ We train the model with training data collected from
 to generate pop song phrases consisting of bass, drums, guitar, piano and
 strings tracks.
 
-Sample results are available
-[here](https://salu133445.github.io/musegan/results).
+We then use a variety of song-data features as conditional generators for the music.
 
 ## Prerequisites
 
