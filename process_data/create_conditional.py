@@ -1,12 +1,15 @@
 import SharedArray as sa
 import numpy as np
+#File of the different functions creating conditional info from the data
 
-
-
+#Load in the training data from the shared array
 train =  sa.attach('train_x_lpd_5_phr')
 # train has shape (102378, 4, 48, 84, 5)
-train = train[:56]
-train = np.array(train)
+
+#Use a smaller sample size for teseting
+#train = train[:56]
+#train = np.array(train)
+
 
 
 def height(train):
@@ -31,16 +34,15 @@ def height(train):
                         diff[i][j][k][0][l] = 0
     return diff
 
-
+#Testing
 #print(train.shape)
-
 #h = height(train)
 #print(h.shape)
 #print(h[1][1][:][:][:].shape)
 
 
 def maxmin(train):
-    #function that computes the index of the topmost note and the bottommost note
+    #function that computes the index of the topmost note and the bottommost note in each time interval in a bar
     shape = train.shape
     mm = np.zeros((shape[0], shape[1], shape[2], 2, shape[4]))
     for i in range(shape[0]):
@@ -70,6 +72,7 @@ def maxmin(train):
     return mm
 
 
+#Testing
 #mm = maxmin(train)
 #print(mm[1][1][:][:][:].shape)
 #print(mm[10][0][:][:][:])
@@ -91,6 +94,7 @@ def density(train):
     return dens
 
 
+#Testing
 #d = density(train)
 #print(d.shape)
 #print(d[1][1][:][:][:])
@@ -113,6 +117,7 @@ def note_repetition(train):
     return rep
 
 
+#Testing
 #n = note_repetition(train)
 #print(n.shape)
 #print(n[3][0][:][:][:])
@@ -122,7 +127,7 @@ def note_repetition(train):
 #notes above a line and below
 
 def halfline(train):
-    #function that computes the number of notes within each interval of a bar
+    #function that computes the number of notes within the top half notes and bottom half of notes of an interval of a bar
     shape = train.shape
     hline = np.zeros((shape[0], shape[1], shape[2], 2, shape[4]))
     for i in range(shape[0]):
@@ -142,6 +147,7 @@ def halfline(train):
     return hline
 
 
+#Testing
 #h = halfline(train)
 #print(h.shape)
 #print(h[3][0][:][:][:])
@@ -149,7 +155,7 @@ def halfline(train):
 #print(h[2][1][:][:][:].shape)
 
 def thirdline(train):
-    #function that computes the number of notes within each interval of a bar
+    #function that computes the number of notes within the top third, middle third, and bottomm third notes of each interval of a bar
     shape = train.shape
     tline = np.zeros((shape[0], shape[1], shape[2], 3, shape[4]))
     for i in range(shape[0]):
@@ -174,14 +180,16 @@ def thirdline(train):
     return tline
 
 
+#Testomg
 #t = thirdline(train)
 #print(t.shape)
 #print(t[3][0][:][:][:])
 #print(t[3][1][:][:][:])
 #print(t[2][1][:][:][:].shape)
 
+
 def barheight(train):
-    #function that computes the difference between the topmost note and the bottommost note
+    #function that computes the difference between the topmost note and the bottommost note within each bar
     shape = train.shape
     bdiff = np.zeros((shape[0], shape[1], 1, 1, shape[4]))
     for i in range(shape[0]):
@@ -202,12 +210,13 @@ def barheight(train):
                         bdiff[i][j][0][0][l] = 0
     return bdiff
 
+#Testing
 #bh = barheight(train)
 #print(bh[1][1][:][:][:])
 #print(bh[1][1][:][:][:].shape)
 
 def barmaxmin(train):
-    #function that computes the index of the topmost note and the bottommost note
+    #function that computes the index of the topmost note and the bottommost note within each bar
     shape = train.shape
     bmm = np.zeros((shape[0], shape[1], 1, 2, shape[4]))
     for i in range(shape[0]):
@@ -237,18 +246,11 @@ def barmaxmin(train):
     return bmm
 
 
-
+#Testing
 #bm = barmaxmin(train)
 #print(bm[1][1][:][:][:])
 #print(bm[1][1][:][:][:].shape)
 
-
-
-
-#xor?
-#binary mask
-#some kind of correspondence with other tracks
-#corrsepondence with local surroundings
 
  
 def andmask(train):
@@ -263,10 +265,11 @@ def andmask(train):
                         a[i][j][k][m][0] = 1
     return a
 
-
+#Testing
 #a = andmask(train)
 #print(a[1][1][0][:][:])
 #print(a[1][1][0][:][:].shape)
+
 
 def alland(train): 
     shape = train.shape
@@ -282,7 +285,7 @@ def alland(train):
 
 
 def checkand(train1, train2):
-    #function that computes the notes shared between all the different instrument tracks
+    #function that computes the notes shared between every pair of the different instrument tracks
     shape = train1.shape
     a = np.zeros((shape[0], shape[1], shape[2], shape[3], 1))
     for i in range(shape[0]):
@@ -293,7 +296,8 @@ def checkand(train1, train2):
                         a[i][j][k][m][0] = 1
     return a
 
-##fix these methods (alland, checkand, allor, checkor, allxor, checkxor)
+#Testing
+#fix these methods (alland, checkand, allor, checkor, allxor, checkxor)
 #a = alland(train)
 #print(a[1][1][0][:][:])
 #pprint(a[1][1][0][:][:].shape)
@@ -310,6 +314,7 @@ def ormask(train):
                         o[i][j][k][m][0] = 1
     return o
 
+#Testing
 #o = ormask(train)
 #print(o[1][1][0][:][:])
 #print(o[1][1][0][:][:].shape)
@@ -326,7 +331,7 @@ def allor(train):
     
 
 def checkor(train1, train2):
-    #function that computes the notes shared between all the different instrument tracks
+    #function that computes the notes used by any pair of the different instrument tracks
     shape = train1.shape
     o = np.zeros((shape[0], shape[1], shape[2], shape[3], 1))
     for i in range(shape[0]):
@@ -337,9 +342,11 @@ def checkor(train1, train2):
                         o[i][j][k][m][0] = 1
     return o
  
+#Testing
 #o = allor(train)
 #print(o[1][1][0][:][:])
 #print(o[1][1][0][:][:].shape)
+
 
 def xormask(train):
     #function that computes the notes used by only one of the different instrument tracks
@@ -353,9 +360,11 @@ def xormask(train):
                         xo[i][j][k][m][0] = 1
     return xo
 
+#Testing
 #xo = ormask(train)
 #print(xo[1][1][0][:][:])
 #print(xo[1][1][0][:][:].shape)
+
 
 def allxor(train): 
     shape = train.shape
@@ -369,7 +378,7 @@ def allxor(train):
     
 
 def checkxor(train1, train2):
-    #function that computes the notes shared between all the different instrument tracks
+    #function that computes the notes used by only one the different instrument tracks
     shape = train1.shape
     xo = np.zeros((shape[0], shape[1], shape[2], shape[3], 0))
     for i in range(shape[0]):
@@ -381,11 +390,11 @@ def checkxor(train1, train2):
     return xo
 
 
-#Finish
+#TODO
 
 # train has shape (102378, 4, 48, 84, 5)
 def similarity(train):
-    #function that computes the difference between the topmost note and the bottommost note
+    #function that uses some kind of distance metric to compare the different instrument tracks (distance function still TBD)
     shape = train.shape
     similar = np.zeros((shape[0], shape[1], shape[2], 1, 10))
     for i in range(shape[0]):
