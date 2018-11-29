@@ -7,8 +7,66 @@ train =  sa.attach('train_x_lpd_5_phr')
 # train has shape (102378, 4, 48, 84, 5)
 
 #Use a smaller sample size for teseting
-#train = train[:56]
+train = train[:56]
 #train = np.array(train)
+
+
+ 
+def andmask(train):
+    #function that computes the notes shared between all the different instrument tracks
+    shape = train.shape
+    a = np.zeros((shape[0], shape[1], shape[2], shape[3]))
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            for k in range(shape[2]):
+                for m in range(shape[3]):
+                    if train[i][j][k][m][0] and train[i][j][k][m][1] and train[i][j][k][m][2] and train[i][j][k][m][3] and train[i][j][k][m][4]:
+                        a[i][j][k][m] = 1
+    train[..., 2] = a
+    return train
+
+#Testing
+a = andmask(train)
+#print(a[1][1][0][:][:])
+print(a.shape)
+
+
+def ormask(train):
+    #function that computes the notes used by any of the different instrument tracks
+    shape = train.shape
+    o = np.zeros((shape[0], shape[1], shape[2], shape[3], 1))
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            for k in range(shape[2]):
+                for m in range(shape[3]):
+                    if train[i][j][k][m][0] or train[i][j][k][m][1] or train[i][j][k][m][2] or train[i][j][k][m][3] or train[i][j][k][m][4]:
+                        o[i][j][k][m][0] = 1
+    return o
+
+#Testing
+#o = ormask(train)
+#print(o[1][1][0][:][:])
+#print(o[1][1][0][:][:].shape)
+
+
+
+
+def xormask(train):
+    #function that computes the notes used by only one of the different instrument tracks
+    shape = train.shape
+    xo = np.zeros((shape[0], shape[1], shape[2], shape[3], 1))
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            for k in range(shape[2]):
+                for m in range(shape[3]):
+                    if train[i][j][k][m][0] ^ train[i][j][k][m][1] ^ train[i][j][k][m][2] ^ train[i][j][k][m][3] ^ train[i][j][k][m][4]:
+                        xo[i][j][k][m][0] = 1
+    return xo
+
+#Testing
+#xo = ormask(train)
+#print(xo[1][1][0][:][:])
+#print(xo[1][1][0][:][:].shape)
 
 
 
@@ -252,23 +310,6 @@ def barmaxmin(train):
 #print(bm[1][1][:][:][:].shape)
 
 
- 
-def andmask(train):
-    #function that computes the notes shared between all the different instrument tracks
-    shape = train.shape
-    a = np.zeros((shape[0], shape[1], shape[2], shape[3], 1))
-    for i in range(shape[0]):
-        for j in range(shape[1]):
-            for k in range(shape[2]):
-                for m in range(shape[3]):
-                    if train[i][j][k][m][0] and train[i][j][k][m][1] and train[i][j][k][m][2] and train[i][j][k][m][3] and train[i][j][k][m][4]:
-                        a[i][j][k][m][0] = 1
-    return a
-
-#Testing
-#a = andmask(train)
-#print(a[1][1][0][:][:])
-#print(a[1][1][0][:][:].shape)
 
 
 def alland(train): 
@@ -302,22 +343,6 @@ def checkand(train1, train2):
 #print(a[1][1][0][:][:])
 #pprint(a[1][1][0][:][:].shape)
 
-def ormask(train):
-    #function that computes the notes used by any of the different instrument tracks
-    shape = train.shape
-    o = np.zeros((shape[0], shape[1], shape[2], shape[3], 1))
-    for i in range(shape[0]):
-        for j in range(shape[1]):
-            for k in range(shape[2]):
-                for m in range(shape[3]):
-                    if train[i][j][k][m][0] or train[i][j][k][m][1] or train[i][j][k][m][2] or train[i][j][k][m][3] or train[i][j][k][m][4]:
-                        o[i][j][k][m][0] = 1
-    return o
-
-#Testing
-#o = ormask(train)
-#print(o[1][1][0][:][:])
-#print(o[1][1][0][:][:].shape)
 
 def allor(train): 
     shape = train.shape
@@ -346,24 +371,6 @@ def checkor(train1, train2):
 #o = allor(train)
 #print(o[1][1][0][:][:])
 #print(o[1][1][0][:][:].shape)
-
-
-def xormask(train):
-    #function that computes the notes used by only one of the different instrument tracks
-    shape = train.shape
-    xo = np.zeros((shape[0], shape[1], shape[2], shape[3], 1))
-    for i in range(shape[0]):
-        for j in range(shape[1]):
-            for k in range(shape[2]):
-                for m in range(shape[3]):
-                    if train[i][j][k][m][0] ^ train[i][j][k][m][1] ^ train[i][j][k][m][2] ^ train[i][j][k][m][3] ^ train[i][j][k][m][4]:
-                        xo[i][j][k][m][0] = 1
-    return xo
-
-#Testing
-#xo = ormask(train)
-#print(xo[1][1][0][:][:])
-#print(xo[1][1][0][:][:].shape)
 
 
 def allxor(train): 

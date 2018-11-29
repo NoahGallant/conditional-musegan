@@ -14,6 +14,57 @@ from musegan.utils import make_sure_path_exists, load_yaml
 from musegan.utils import backup_src, update_not_none, setup_loggers
 LOGGER = logging.getLogger("musegan.train")
 
+####################
+#Andrew is adding this
+def andmask(train, ind):
+    #function that computes the notes shared between all the different instrument tracks
+    shape = train.shape
+    a = np.zeros((shape[0], shape[1], shape[2], shape[3]))
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            for k in range(shape[2]):
+                for m in range(shape[3]):
+                    if train[i][j][k][m][0] and train[i][j][k][m][1] and train[i][j][k][m][2] and train[i][j][k][m][3] and train[i][j][k][m][4]:
+                        a[i][j][k][m] = 1
+    #print(i)
+    #print(train.shape)
+    #print(a.shape)
+    train[..., ind] = a
+    return train
+
+
+
+    #print(shape)
+def ormask(train):
+    #function that computes the notes used by any of the different instrument tracks
+    shape = train.shape
+    o = np.zeros((shape[0], shape[1], shape[2], shape[3]))
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            for k in range(shape[2]):
+                for m in range(shape[3]):
+                    if train[i][j][k][m][0] or train[i][j][k][m][1] or train[i][j][k][m][2] or train[i][j][k][m][3] or train[i][j][k][m][4]:
+                        o[i][j][k][m][0] = 1
+    #train[..., params['condition_track_idx']] = o
+    return o
+
+
+def xormask(train):
+    #function that computes the notes used by only one of the different instrument tracks
+    shape = train.shape
+    xo = np.zeros((shape[0], shape[1], shape[2], shape[3]))
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            for k in range(shape[2]):
+                for m in range(shape[3]):
+                    if train[i][j][k][m][0] ^ train[i][j][k][m][1] ^ train[i][j][k][m][2] ^ train[i][j][k][m][3] ^ train[i][j][k][m][4]:
+                        xo[i][j][k][m][0] = 1
+    #train[..., params['condition_track_idx']] = xo
+    return xo
+
+################
+
+
 def parse_arguments():
     """Parse and return the command line arguments."""
     parser = argparse.ArgumentParser()
@@ -54,7 +105,6 @@ def setup():
     if params['is_accompaniment'] and params['condition_track_idx'] is None:
         raise TypeError("`condition_track_idx` cannot be None type in "
                         "accompaniment mode.")
-
     # Load training configurations
     config = load_yaml(args.config)
     update_not_none(config, vars(args))
@@ -142,6 +192,10 @@ def load_or_create_samples(params, config):
                 LOGGER.info("Loaded sample_x has wrong shape")
                 resample = True
             else:
+                ##############
+                ###AnDREW
+                sample_x = andmask(sample_x, params['condition_track_idx'])
+                ###########
                 resample = False
         else:
             LOGGER.info("File for sample_x not found")
@@ -155,7 +209,17 @@ def load_or_create_samples(params, config):
                 np.prod(config['sample_grid']), data,
                 use_random_transpose = config['use_random_transpose'])
             make_sure_path_exists(config['model_dir'])
+            ########
+            ###ANDREW AGAIN
+            sample_x = andmask(sample_x, params['condition_track_idx'])            
+            #########
+
             np.save(sample_x_path, sample_x)
+
+            #####
+            #Andrew is adding this
+            #LOGGER.info(str(sample_x.shape))
+            #####
     else:
         sample_x = None
 
@@ -179,6 +243,10 @@ def main():
     if params['is_accompaniment']:
         train_c = tf.expand_dims(
             train_x[..., params['condition_track_idx']], -1)
+            #######
+            ####Andrew changing
+            #andmask(train_x), -1)
+            #####
         train_nodes = model(
             x=train_x, c=train_c, mode='train', params=params, config=config)
     else:
