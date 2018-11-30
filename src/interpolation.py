@@ -12,6 +12,52 @@ from musegan.model import Model
 from musegan.utils import make_sure_path_exists, load_yaml, update_not_none
 LOGGER = logging.getLogger("musegan.interpolation")
 
+#######################
+#Sickonet
+def andmask(train, ind):
+    #function that computes the notes shared between all the different instrument tracks
+    shape = train.shape
+    a = np.zeros((shape[0], shape[1], shape[2], shape[3]))
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            for k in range(shape[2]):
+                for m in range(shape[3]):
+                    if train[i][j][k][m][0] and train[i][j][k][m][1] and train[i][j][k][m][2] and train[i][j][k][m][3] and train[i][j][k][m][4]:
+                        a[i][j][k][m] = 1
+    #print(i)
+    #print(train.shape)
+    #print(a.shape)
+    train[..., ind] = a
+    return train
+    #print(shape)
+def ormask(train):
+    #function that computes the notes used by any of the different instrument tracks
+    shape = train.shape
+    o = np.zeros((shape[0], shape[1], shape[2], shape[3]))
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            for k in range(shape[2]):
+                for m in range(shape[3]):
+                    if train[i][j][k][m][0] or train[i][j][k][m][1] or train[i][j][k][m][2] or train[i][j][k][m][3] or train[i][j][k][m][4]:
+                        o[i][j][k][m][0] = 1
+    #train[..., params['condition_track_idx']] = o
+    return o
+def xormask(train):
+    #function that computes the notes used by only one of the different instrument tracks
+    shape = train.shape
+    xo = np.zeros((shape[0], shape[1], shape[2], shape[3]))
+    for i in range(shape[0]):
+        for j in range(shape[1]):
+            for k in range(shape[2]):
+                for m in range(shape[3]):
+                    if train[i][j][k][m][0] ^ train[i][j][k][m][1] ^ train[i][j][k][m][2] ^ train[i][j][k][m][3] ^ train[i][j][k][m][4]:
+                        xo[i][j][k][m][0] = 1
+    #train[..., params['condition_track_idx']] = xo
+    return xo
+###########################
+
+
+
 def parse_arguments():
     """Parse and return the command line arguments."""
     parser = argparse.ArgumentParser()
@@ -194,6 +240,12 @@ def main():
                 sample_x = get_samples(
                     1, data,
                     use_random_transpose=config['use_random_transpose'])
+###################
+##Sickonet
+                sample_x = andmask(sample_x, params['condition_track_idx'])
+################
+
+
                 sample_c = np.expand_dims(
                     sample_x[..., params['condition_track_idx']], -1)
                 feed_dict_sampler[placeholder_c] = np.repeat(
