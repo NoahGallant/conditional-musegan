@@ -1,0 +1,518 @@
+2018-11-30 23:32:29,664 musegan.train        INFO     Using parameters:
+{'beat_resolution': 12,
+ 'condition_track_idx': 3,
+ 'data_shape': [4, 48, 84, 5],
+ 'is_accompaniment': True,
+ 'is_conditional': False,
+ 'latent_dim': 128,
+ 'nets': {'discriminator': 'default', 'generator': 'accompaniment'},
+ 'use_binary_neurons': False}
+2018-11-30 23:32:29,666 musegan.train        INFO     Using configurations:
+{'adam': {'beta1': 0.5, 'beta2': 0.9},
+ 'batch_size': 64,
+ 'colormap': [[1.0, 0.0, 0.0],
+              [1.0, 0.5, 0.0],
+              [0.0, 1.0, 0.0],
+              [0.0, 0.0, 1.0],
+              [0.0, 0.5, 1.0]],
+ 'config': './exp/accompaniment/andmask_15000//config.yaml',
+ 'data_filename': 'train_x_lpd_5_phr',
+ 'data_root': None,
+ 'data_source': 'sa',
+ 'eval_dir': '/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/eval',
+ 'evaluate_steps': 100,
+ 'exp_dir': '/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000',
+ 'gan_loss_type': 'wasserstein',
+ 'gpu': '0',
+ 'initial_learning_rate': 0.001,
+ 'learning_rate_schedule': {'end': 15000, 'end_value': 0.0, 'start': 45000},
+ 'log_dir': '/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/logs/train',
+ 'log_loss_steps': 100,
+ 'midi': {'is_drums': [1, 0, 0, 0, 0],
+          'lowest_pitch': 24,
+          'programs': [0, 0, 25, 33, 48],
+          'tempo': 100},
+ 'model_dir': '/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/model',
+ 'n_dis_updates_per_gen_update': 5,
+ 'n_jobs': 20,
+ 'params': './exp/accompaniment/andmask_15000//params.yaml',
+ 'sample_dir': '/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/samples',
+ 'sample_grid': [8, 8],
+ 'save_array_samples': True,
+ 'save_checkpoint_steps': 500,
+ 'save_image_samples': True,
+ 'save_pianoroll_samples': True,
+ 'save_samples_steps': 100,
+ 'save_summaries_steps': 0,
+ 'slope_schedule': {'end': 15000, 'end_value': 5.0, 'start': 10000},
+ 'src_dir': '/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/src',
+ 'steps': 15000,
+ 'use_gradient_penalties': True,
+ 'use_learning_rate_decay': False,
+ 'use_random_transpose': False,
+ 'use_slope_annealing': False,
+ 'use_train_test_split': False}
+2018-11-30 23:32:29,666 musegan.train        INFO     Loading training data.
+2018-11-30 23:32:29,667 musegan.train        INFO     Training data size: 102378
+2018-11-30 23:32:29,667 musegan.train        INFO     Building dataset.
+2018-11-30 23:32:46,811 musegan.train        INFO     Number of trainable parameters in Model: 5,255,213
+2018-11-30 23:32:46,813 musegan.train        INFO     Number of trainable parameters in Generator: 3,889,372
+2018-11-30 23:32:46,815 musegan.train        INFO     Number of trainable parameters in Discriminator: 1,365,841
+2018-11-30 23:32:46,815 musegan.train        INFO     Loading sample_z.
+2018-11-30 23:32:46,815 musegan.train        INFO     File for sample_z not found
+2018-11-30 23:32:46,816 musegan.train        INFO     Drawing new sample_z.
+2018-11-30 23:32:46,819 musegan.train        INFO     Loading sample_x.
+2018-11-30 23:32:46,820 musegan.train        INFO     File for sample_x not found
+2018-11-30 23:32:46,820 musegan.train        INFO     Drawing new sample_x.
+2018-11-30 23:32:54,529 musegan.train        INFO     Training start.
+2018-11-30 23:47:17,220 musegan.train        INFO     step=100, dis_loss=-1.4817E+02, gen_loss= 1.7041E+01
+2018-11-30 23:47:17,221 musegan.train        INFO     Running sampler
+2018-11-30 23:47:28,658 musegan.train        INFO     Running evaluation
+2018-11-30 23:55:20,040 musegan.train        INFO     step=200, dis_loss=-1.2569E+02, gen_loss= 7.4922E+01
+2018-11-30 23:55:20,040 musegan.train        INFO     Running sampler
+2018-11-30 23:55:28,112 musegan.train        INFO     Running evaluation
+2018-12-01 00:03:14,567 musegan.train        INFO     step=300, dis_loss=-1.0637E+02, gen_loss= 8.8325E+01
+2018-12-01 00:03:14,567 musegan.train        INFO     Running sampler
+2018-12-01 00:03:24,185 musegan.train        INFO     Running evaluation
+2018-12-01 00:11:11,420 musegan.train        INFO     step=400, dis_loss=-8.9986E+01, gen_loss= 1.1972E+02
+2018-12-01 00:11:11,420 musegan.train        INFO     Running sampler
+2018-12-01 00:11:19,539 musegan.train        INFO     Running evaluation
+2018-12-01 00:19:07,765 musegan.train        INFO     step=500, dis_loss=-6.8162E+01, gen_loss= 7.8624E+01
+2018-12-01 00:19:07,765 musegan.train        INFO     Running sampler
+2018-12-01 00:19:10,846 musegan.train        INFO     Running evaluation
+2018-12-01 00:26:57,367 musegan.train        INFO     step=600, dis_loss=-5.5599E+01, gen_loss= 5.0468E+01
+2018-12-01 00:26:57,367 musegan.train        INFO     Running sampler
+2018-12-01 00:26:58,726 musegan.train        INFO     Running evaluation
+2018-12-01 00:34:44,986 musegan.train        INFO     step=700, dis_loss=-4.5769E+01, gen_loss= 3.8394E+01
+2018-12-01 00:34:44,986 musegan.train        INFO     Running sampler
+2018-12-01 00:34:46,293 musegan.train        INFO     Running evaluation
+2018-12-01 00:42:33,056 musegan.train        INFO     step=800, dis_loss=-3.4860E+01, gen_loss= 1.4333E+01
+2018-12-01 00:42:33,057 musegan.train        INFO     Running sampler
+2018-12-01 00:42:39,477 musegan.train        INFO     Running evaluation
+2018-12-01 00:50:26,157 musegan.train        INFO     step=900, dis_loss=-2.9106E+01, gen_loss=-3.9842E+00
+2018-12-01 00:50:26,157 musegan.train        INFO     Running sampler
+2018-12-01 00:50:32,978 musegan.train        INFO     Running evaluation
+2018-12-01 00:58:22,003 musegan.train        INFO     step=1000, dis_loss=-2.3394E+01, gen_loss=-1.3823E+01
+2018-12-01 00:58:22,004 musegan.train        INFO     Running sampler
+2018-12-01 00:58:29,556 musegan.train        INFO     Running evaluation
+2018-12-01 01:06:16,427 musegan.train        INFO     step=1100, dis_loss=-2.0616E+01, gen_loss=-1.3303E+01
+2018-12-01 01:06:16,427 musegan.train        INFO     Running sampler
+2018-12-01 01:06:23,857 musegan.train        INFO     Running evaluation
+2018-12-01 01:14:10,496 musegan.train        INFO     step=1200, dis_loss=-1.9328E+01, gen_loss=-1.2530E+01
+2018-12-01 01:14:10,496 musegan.train        INFO     Running sampler
+2018-12-01 01:14:17,592 musegan.train        INFO     Running evaluation
+2018-12-01 01:22:04,403 musegan.train        INFO     step=1300, dis_loss=-1.6661E+01, gen_loss=-1.4380E+01
+2018-12-01 01:22:04,404 musegan.train        INFO     Running sampler
+2018-12-01 01:22:11,052 musegan.train        INFO     Running evaluation
+2018-12-01 01:29:57,719 musegan.train        INFO     step=1400, dis_loss=-1.5179E+01, gen_loss=-2.1882E+01
+2018-12-01 01:29:57,719 musegan.train        INFO     Running sampler
+2018-12-01 01:30:03,567 musegan.train        INFO     Running evaluation
+2018-12-01 01:37:52,556 musegan.train        INFO     step=1500, dis_loss=-1.4054E+01, gen_loss=-1.7868E+01
+2018-12-01 01:37:52,556 musegan.train        INFO     Running sampler
+2018-12-01 01:37:57,716 musegan.train        INFO     Running evaluation
+2018-12-01 01:45:44,497 musegan.train        INFO     step=1600, dis_loss=-1.3813E+01, gen_loss=-1.6934E+01
+2018-12-01 01:45:44,497 musegan.train        INFO     Running sampler
+2018-12-01 01:45:50,579 musegan.train        INFO     Running evaluation
+2018-12-01 01:53:37,620 musegan.train        INFO     step=1700, dis_loss=-1.3181E+01, gen_loss=-2.1886E+01
+2018-12-01 01:53:37,621 musegan.train        INFO     Running sampler
+2018-12-01 01:53:42,781 musegan.train        INFO     Running evaluation
+2018-12-01 02:01:29,769 musegan.train        INFO     step=1800, dis_loss=-9.6098E+00, gen_loss=-1.4469E+01
+2018-12-01 02:01:29,769 musegan.train        INFO     Running sampler
+2018-12-01 02:01:34,455 musegan.train        INFO     Running evaluation
+2018-12-01 02:09:21,620 musegan.train        INFO     step=1900, dis_loss=-7.1375E+00, gen_loss=-2.9673E+01
+2018-12-01 02:09:21,620 musegan.train        INFO     Running sampler
+2018-12-01 02:09:26,068 musegan.train        INFO     Running evaluation
+2018-12-01 02:17:15,517 musegan.train        INFO     step=2000, dis_loss=-7.3781E+00, gen_loss=-2.9817E+01
+2018-12-01 02:17:15,517 musegan.train        INFO     Running sampler
+2018-12-01 02:17:19,622 musegan.train        INFO     Running evaluation
+2018-12-01 02:25:07,437 musegan.train        INFO     step=2100, dis_loss=-4.9474E+00, gen_loss=-3.2065E+01
+2018-12-01 02:25:07,438 musegan.train        INFO     Running sampler
+2018-12-01 02:25:12,300 musegan.train        INFO     Running evaluation
+2018-12-01 02:33:00,297 musegan.train        INFO     step=2200, dis_loss=-5.2626E+00, gen_loss=-2.1102E+01
+2018-12-01 02:33:00,297 musegan.train        INFO     Running sampler
+2018-12-01 02:33:05,240 musegan.train        INFO     Running evaluation
+2018-12-01 02:40:53,232 musegan.train        INFO     step=2300, dis_loss=-5.0378E+00, gen_loss=-3.1906E+01
+2018-12-01 02:40:53,232 musegan.train        INFO     Running sampler
+2018-12-01 02:40:57,781 musegan.train        INFO     Running evaluation
+2018-12-01 02:48:46,618 musegan.train        INFO     step=2400, dis_loss=-4.8366E+00, gen_loss=-2.5595E+01
+2018-12-01 02:48:46,618 musegan.train        INFO     Running sampler
+2018-12-01 02:48:50,937 musegan.train        INFO     Running evaluation
+2018-12-01 02:56:42,400 musegan.train        INFO     step=2500, dis_loss=-4.5081E+00, gen_loss=-2.7366E+01
+2018-12-01 02:56:42,400 musegan.train        INFO     Running sampler
+2018-12-01 02:56:46,410 musegan.train        INFO     Running evaluation
+2018-12-01 03:04:35,570 musegan.train        INFO     step=2600, dis_loss=-4.8752E+00, gen_loss=-3.0648E+01
+2018-12-01 03:04:35,570 musegan.train        INFO     Running sampler
+2018-12-01 03:04:38,480 musegan.train        INFO     Running evaluation
+2018-12-01 03:12:27,530 musegan.train        INFO     step=2700, dis_loss=-4.8556E+00, gen_loss=-3.1306E+01
+2018-12-01 03:12:27,531 musegan.train        INFO     Running sampler
+2018-12-01 03:12:30,230 musegan.train        INFO     Running evaluation
+2018-12-01 03:20:16,792 musegan.train        INFO     step=2800, dis_loss=-4.7818E+00, gen_loss=-3.1042E+01
+2018-12-01 03:20:16,792 musegan.train        INFO     Running sampler
+2018-12-01 03:20:19,374 musegan.train        INFO     Running evaluation
+2018-12-01 03:28:06,568 musegan.train        INFO     step=2900, dis_loss=-4.6602E+00, gen_loss=-2.6292E+01
+2018-12-01 03:28:06,568 musegan.train        INFO     Running sampler
+2018-12-01 03:28:09,013 musegan.train        INFO     Running evaluation
+2018-12-01 03:35:58,236 musegan.train        INFO     step=3000, dis_loss=-4.0277E+00, gen_loss=-3.6903E+01
+2018-12-01 03:35:58,237 musegan.train        INFO     Running sampler
+2018-12-01 03:36:03,607 musegan.train        INFO     Running evaluation
+2018-12-01 03:43:51,248 musegan.train        INFO     step=3100, dis_loss=-3.6195E+00, gen_loss=-2.5333E+01
+2018-12-01 03:43:51,248 musegan.train        INFO     Running sampler
+2018-12-01 03:43:53,671 musegan.train        INFO     Running evaluation
+2018-12-01 03:51:38,564 musegan.train        INFO     step=3200, dis_loss=-4.0972E+00, gen_loss=-3.0159E+01
+2018-12-01 03:51:38,565 musegan.train        INFO     Running sampler
+2018-12-01 03:51:40,867 musegan.train        INFO     Running evaluation
+2018-12-01 03:59:28,261 musegan.train        INFO     step=3300, dis_loss=-3.9875E+00, gen_loss=-2.6697E+01
+2018-12-01 03:59:28,262 musegan.train        INFO     Running sampler
+2018-12-01 03:59:30,163 musegan.train        INFO     Running evaluation
+2018-12-01 04:07:16,567 musegan.train        INFO     step=3400, dis_loss=-2.8147E+00, gen_loss=-3.8606E+01
+2018-12-01 04:07:16,567 musegan.train        INFO     Running sampler
+2018-12-01 04:07:17,836 musegan.train        INFO     Running evaluation
+2018-12-01 04:15:06,225 musegan.train        INFO     step=3500, dis_loss=-3.8480E+00, gen_loss=-2.5165E+01
+2018-12-01 04:15:06,225 musegan.train        INFO     Running sampler
+2018-12-01 04:15:08,595 musegan.train        INFO     Running evaluation
+2018-12-01 04:22:54,989 musegan.train        INFO     step=3600, dis_loss=-4.4578E+00, gen_loss=-2.5939E+01
+2018-12-01 04:22:54,989 musegan.train        INFO     Running sampler
+2018-12-01 04:22:56,963 musegan.train        INFO     Running evaluation
+2018-12-01 04:30:43,264 musegan.train        INFO     step=3700, dis_loss=-4.2558E+00, gen_loss=-3.4322E+01
+2018-12-01 04:30:43,265 musegan.train        INFO     Running sampler
+2018-12-01 04:30:45,572 musegan.train        INFO     Running evaluation
+2018-12-01 04:38:32,050 musegan.train        INFO     step=3800, dis_loss=-3.9320E+00, gen_loss=-2.9408E+01
+2018-12-01 04:38:32,051 musegan.train        INFO     Running sampler
+2018-12-01 04:38:34,110 musegan.train        INFO     Running evaluation
+2018-12-01 04:46:20,377 musegan.train        INFO     step=3900, dis_loss=-4.4817E+00, gen_loss=-2.9593E+01
+2018-12-01 04:46:20,378 musegan.train        INFO     Running sampler
+2018-12-01 04:46:21,720 musegan.train        INFO     Running evaluation
+2018-12-01 04:54:10,702 musegan.train        INFO     step=4000, dis_loss=-5.2922E+00, gen_loss=-2.8490E+01
+2018-12-01 04:54:10,702 musegan.train        INFO     Running sampler
+2018-12-01 04:54:12,402 musegan.train        INFO     Running evaluation
+2018-12-01 05:01:59,873 musegan.train        INFO     step=4100, dis_loss=-4.3043E+00, gen_loss=-3.2586E+01
+2018-12-01 05:01:59,873 musegan.train        INFO     Running sampler
+2018-12-01 05:02:01,077 musegan.train        INFO     Running evaluation
+2018-12-01 05:09:48,786 musegan.train        INFO     step=4200, dis_loss=-4.3706E+00, gen_loss=-3.6232E+01
+2018-12-01 05:09:48,786 musegan.train        INFO     Running sampler
+2018-12-01 05:09:50,028 musegan.train        INFO     Running evaluation
+2018-12-01 05:17:38,268 musegan.train        INFO     step=4300, dis_loss=-3.7322E+00, gen_loss=-3.0029E+01
+2018-12-01 05:17:38,268 musegan.train        INFO     Running sampler
+2018-12-01 05:17:40,068 musegan.train        INFO     Running evaluation
+2018-12-01 05:25:27,870 musegan.train        INFO     step=4400, dis_loss=-4.0521E+00, gen_loss=-3.1650E+01
+2018-12-01 05:25:27,870 musegan.train        INFO     Running sampler
+2018-12-01 05:25:29,221 musegan.train        INFO     Running evaluation
+2018-12-01 05:33:18,885 musegan.train        INFO     step=4500, dis_loss=-4.6288E+00, gen_loss=-3.8146E+01
+2018-12-01 05:33:18,885 musegan.train        INFO     Running sampler
+2018-12-01 05:33:20,292 musegan.train        INFO     Running evaluation
+2018-12-01 05:41:08,151 musegan.train        INFO     step=4600, dis_loss=-4.2437E+00, gen_loss=-3.6880E+01
+2018-12-01 05:41:08,152 musegan.train        INFO     Running sampler
+2018-12-01 05:41:09,753 musegan.train        INFO     Running evaluation
+2018-12-01 05:48:57,675 musegan.train        INFO     step=4700, dis_loss=-3.9416E+00, gen_loss=-2.6276E+01
+2018-12-01 05:48:57,676 musegan.train        INFO     Running sampler
+2018-12-01 05:48:59,743 musegan.train        INFO     Running evaluation
+2018-12-01 05:56:45,969 musegan.train        INFO     step=4800, dis_loss=-4.4590E+00, gen_loss=-3.2278E+01
+2018-12-01 05:56:45,969 musegan.train        INFO     Running sampler
+2018-12-01 05:56:47,751 musegan.train        INFO     Running evaluation
+2018-12-01 06:04:33,017 musegan.train        INFO     step=4900, dis_loss=-3.9507E+00, gen_loss=-3.8225E+01
+2018-12-01 06:04:33,017 musegan.train        INFO     Running sampler
+2018-12-01 06:04:35,058 musegan.train        INFO     Running evaluation
+2018-12-01 06:12:23,399 musegan.train        INFO     step=5000, dis_loss=-3.7238E+00, gen_loss=-3.9319E+01
+2018-12-01 06:12:23,400 musegan.train        INFO     Running sampler
+2018-12-01 06:12:25,979 musegan.train        INFO     Running evaluation
+2018-12-01 06:20:13,689 musegan.train        INFO     step=5100, dis_loss=-5.1942E+00, gen_loss=-3.4805E+01
+2018-12-01 06:20:13,690 musegan.train        INFO     Running sampler
+2018-12-01 06:20:14,797 musegan.train        INFO     Running evaluation
+2018-12-01 06:28:03,419 musegan.train        INFO     step=5200, dis_loss=-3.8229E+00, gen_loss=-3.5286E+01
+2018-12-01 06:28:03,420 musegan.train        INFO     Running sampler
+2018-12-01 06:28:05,377 musegan.train        INFO     Running evaluation
+2018-12-01 06:35:55,230 musegan.train        INFO     step=5300, dis_loss=-1.7835E+00, gen_loss=-3.9916E+01
+2018-12-01 06:35:55,231 musegan.train        INFO     Running sampler
+2018-12-01 06:35:56,602 musegan.train        INFO     Running evaluation
+2018-12-01 06:43:47,419 musegan.train        INFO     step=5400, dis_loss=-4.9597E+00, gen_loss=-3.7357E+01
+2018-12-01 06:43:47,420 musegan.train        INFO     Running sampler
+2018-12-01 06:43:48,587 musegan.train        INFO     Running evaluation
+2018-12-01 06:51:41,081 musegan.train        INFO     step=5500, dis_loss=-5.1866E+00, gen_loss=-3.6799E+01
+2018-12-01 06:51:41,081 musegan.train        INFO     Running sampler
+2018-12-01 06:51:42,556 musegan.train        INFO     Running evaluation
+2018-12-01 06:59:33,637 musegan.train        INFO     step=5600, dis_loss=-4.7170E+00, gen_loss=-3.5480E+01
+2018-12-01 06:59:33,637 musegan.train        INFO     Running sampler
+2018-12-01 06:59:35,238 musegan.train        INFO     Running evaluation
+2018-12-01 07:07:26,437 musegan.train        INFO     step=5700, dis_loss=-6.0481E+00, gen_loss=-4.1625E+01
+2018-12-01 07:07:26,438 musegan.train        INFO     Running sampler
+2018-12-01 07:07:27,638 musegan.train        INFO     Running evaluation
+2018-12-01 07:15:18,816 musegan.train        INFO     step=5800, dis_loss=-3.7056E+00, gen_loss=-3.7078E+01
+2018-12-01 07:15:18,816 musegan.train        INFO     Running sampler
+2018-12-01 07:15:20,294 musegan.train        INFO     Running evaluation
+2018-12-01 07:23:10,841 musegan.train        INFO     step=5900, dis_loss=-3.1444E+00, gen_loss=-3.6712E+01
+2018-12-01 07:23:10,842 musegan.train        INFO     Running sampler
+2018-12-01 07:23:12,141 musegan.train        INFO     Running evaluation
+2018-12-01 07:31:05,000 musegan.train        INFO     step=6000, dis_loss=-3.9224E+00, gen_loss=-3.9921E+01
+2018-12-01 07:31:05,001 musegan.train        INFO     Running sampler
+2018-12-01 07:31:06,292 musegan.train        INFO     Running evaluation
+2018-12-01 07:38:56,464 musegan.train        INFO     step=6100, dis_loss=-4.7005E+00, gen_loss=-3.8253E+01
+2018-12-01 07:38:56,465 musegan.train        INFO     Running sampler
+2018-12-01 07:38:57,861 musegan.train        INFO     Running evaluation
+2018-12-01 07:46:48,463 musegan.train        INFO     step=6200, dis_loss=-4.7549E+00, gen_loss=-3.5334E+01
+2018-12-01 07:46:48,464 musegan.train        INFO     Running sampler
+2018-12-01 07:46:49,662 musegan.train        INFO     Running evaluation
+2018-12-01 07:54:39,566 musegan.train        INFO     step=6300, dis_loss=-4.9526E+00, gen_loss=-4.4035E+01
+2018-12-01 07:54:39,567 musegan.train        INFO     Running sampler
+2018-12-01 07:54:41,103 musegan.train        INFO     Running evaluation
+2018-12-01 08:02:31,350 musegan.train        INFO     step=6400, dis_loss=-4.8881E+00, gen_loss=-4.1080E+01
+2018-12-01 08:02:31,351 musegan.train        INFO     Running sampler
+2018-12-01 08:02:32,678 musegan.train        INFO     Running evaluation
+2018-12-01 08:10:25,142 musegan.train        INFO     step=6500, dis_loss=-4.3095E+00, gen_loss=-3.8467E+01
+2018-12-01 08:10:25,142 musegan.train        INFO     Running sampler
+2018-12-01 08:10:26,456 musegan.train        INFO     Running evaluation
+2018-12-01 08:18:17,293 musegan.train        INFO     step=6600, dis_loss=-4.9508E+00, gen_loss=-3.7294E+01
+2018-12-01 08:18:17,293 musegan.train        INFO     Running sampler
+2018-12-01 08:18:18,600 musegan.train        INFO     Running evaluation
+2018-12-01 08:26:09,520 musegan.train        INFO     step=6700, dis_loss=-4.9215E+00, gen_loss=-4.3289E+01
+2018-12-01 08:26:09,521 musegan.train        INFO     Running sampler
+2018-12-01 08:26:11,308 musegan.train        INFO     Running evaluation
+2018-12-01 08:34:00,926 musegan.train        INFO     step=6800, dis_loss=-4.1607E+00, gen_loss=-3.9600E+01
+2018-12-01 08:34:00,926 musegan.train        INFO     Running sampler
+2018-12-01 08:34:02,466 musegan.train        INFO     Running evaluation
+2018-12-01 08:41:53,184 musegan.train        INFO     step=6900, dis_loss=-4.1770E+00, gen_loss=-4.3097E+01
+2018-12-01 08:41:53,185 musegan.train        INFO     Running sampler
+2018-12-01 08:41:54,649 musegan.train        INFO     Running evaluation
+2018-12-01 08:49:46,458 musegan.train        INFO     step=7000, dis_loss=-4.5302E+00, gen_loss=-4.2407E+01
+2018-12-01 08:49:46,459 musegan.train        INFO     Running sampler
+2018-12-01 08:49:47,801 musegan.train        INFO     Running evaluation
+2018-12-01 08:57:38,507 musegan.train        INFO     step=7100, dis_loss=-4.9902E+00, gen_loss=-4.2358E+01
+2018-12-01 08:57:38,507 musegan.train        INFO     Running sampler
+2018-12-01 08:57:39,773 musegan.train        INFO     Running evaluation
+2018-12-01 09:05:29,819 musegan.train        INFO     step=7200, dis_loss=-4.4233E+00, gen_loss=-4.4352E+01
+2018-12-01 09:05:29,819 musegan.train        INFO     Running sampler
+2018-12-01 09:05:31,264 musegan.train        INFO     Running evaluation
+2018-12-01 09:13:21,695 musegan.train        INFO     step=7300, dis_loss=-4.6686E+00, gen_loss=-4.6242E+01
+2018-12-01 09:13:21,695 musegan.train        INFO     Running sampler
+2018-12-01 09:13:23,023 musegan.train        INFO     Running evaluation
+2018-12-01 09:21:13,698 musegan.train        INFO     step=7400, dis_loss=-3.8258E+00, gen_loss=-4.0079E+01
+2018-12-01 09:21:13,699 musegan.train        INFO     Running sampler
+2018-12-01 09:21:15,123 musegan.train        INFO     Running evaluation
+2018-12-01 09:29:08,200 musegan.train        INFO     step=7500, dis_loss=-3.7221E+00, gen_loss=-4.9378E+01
+2018-12-01 09:29:08,201 musegan.train        INFO     Running sampler
+2018-12-01 09:29:09,655 musegan.train        INFO     Running evaluation
+2018-12-01 09:36:59,705 musegan.train        INFO     step=7600, dis_loss=-3.5217E+00, gen_loss=-4.9864E+01
+2018-12-01 09:36:59,706 musegan.train        INFO     Running sampler
+2018-12-01 09:37:00,899 musegan.train        INFO     Running evaluation
+2018-12-01 09:44:51,452 musegan.train        INFO     step=7700, dis_loss=-3.8197E+00, gen_loss=-4.8990E+01
+2018-12-01 09:44:51,453 musegan.train        INFO     Running sampler
+2018-12-01 09:44:52,810 musegan.train        INFO     Running evaluation
+2018-12-01 09:52:43,035 musegan.train        INFO     step=7800, dis_loss=-4.3082E+00, gen_loss=-4.8980E+01
+2018-12-01 09:52:43,035 musegan.train        INFO     Running sampler
+2018-12-01 09:52:44,333 musegan.train        INFO     Running evaluation
+2018-12-01 10:00:34,922 musegan.train        INFO     step=7900, dis_loss=-4.5255E+00, gen_loss=-4.9176E+01
+2018-12-01 10:00:34,922 musegan.train        INFO     Running sampler
+2018-12-01 10:00:36,182 musegan.train        INFO     Running evaluation
+2018-12-01 10:08:28,580 musegan.train        INFO     step=8000, dis_loss=-3.8724E+00, gen_loss=-4.3463E+01
+2018-12-01 10:08:28,580 musegan.train        INFO     Running sampler
+2018-12-01 10:08:29,785 musegan.train        INFO     Running evaluation
+2018-12-01 10:16:20,144 musegan.train        INFO     step=8100, dis_loss=-4.3364E+00, gen_loss=-4.6117E+01
+2018-12-01 10:16:20,144 musegan.train        INFO     Running sampler
+2018-12-01 10:16:21,609 musegan.train        INFO     Running evaluation
+2018-12-01 10:24:11,609 musegan.train        INFO     step=8200, dis_loss=-4.7656E+00, gen_loss=-5.0262E+01
+2018-12-01 10:24:11,609 musegan.train        INFO     Running sampler
+2018-12-01 10:24:12,778 musegan.train        INFO     Running evaluation
+2018-12-01 10:32:02,628 musegan.train        INFO     step=8300, dis_loss=-2.7756E+00, gen_loss=-5.8834E+01
+2018-12-01 10:32:02,628 musegan.train        INFO     Running sampler
+2018-12-01 10:32:04,139 musegan.train        INFO     Running evaluation
+2018-12-01 10:39:54,715 musegan.train        INFO     step=8400, dis_loss=-4.1928E+00, gen_loss=-4.4427E+01
+2018-12-01 10:39:54,715 musegan.train        INFO     Running sampler
+2018-12-01 10:39:56,265 musegan.train        INFO     Running evaluation
+2018-12-01 10:47:48,494 musegan.train        INFO     step=8500, dis_loss=-4.5810E+00, gen_loss=-4.6343E+01
+2018-12-01 10:47:48,494 musegan.train        INFO     Running sampler
+2018-12-01 10:47:50,026 musegan.train        INFO     Running evaluation
+2018-12-01 10:55:40,099 musegan.train        INFO     step=8600, dis_loss=-4.2517E+00, gen_loss=-4.9399E+01
+2018-12-01 10:55:40,100 musegan.train        INFO     Running sampler
+2018-12-01 10:55:41,657 musegan.train        INFO     Running evaluation
+2018-12-01 11:03:32,114 musegan.train        INFO     step=8700, dis_loss=-4.7326E+00, gen_loss=-4.8575E+01
+2018-12-01 11:03:32,115 musegan.train        INFO     Running sampler
+2018-12-01 11:03:33,335 musegan.train        INFO     Running evaluation
+2018-12-01 11:11:23,548 musegan.train        INFO     step=8800, dis_loss=-3.8890E+00, gen_loss=-5.1140E+01
+2018-12-01 11:11:23,548 musegan.train        INFO     Running sampler
+2018-12-01 11:11:25,108 musegan.train        INFO     Running evaluation
+2018-12-01 11:19:14,834 musegan.train        INFO     step=8900, dis_loss=-4.0782E+00, gen_loss=-5.8282E+01
+2018-12-01 11:19:14,834 musegan.train        INFO     Running sampler
+2018-12-01 11:19:16,166 musegan.train        INFO     Running evaluation
+2018-12-01 11:27:07,476 musegan.train        INFO     step=9000, dis_loss=-5.1041E+00, gen_loss=-5.4157E+01
+2018-12-01 11:27:07,477 musegan.train        INFO     Running sampler
+2018-12-01 11:27:08,901 musegan.train        INFO     Running evaluation
+2018-12-01 11:34:58,540 musegan.train        INFO     step=9100, dis_loss=-4.6932E+00, gen_loss=-5.0750E+01
+2018-12-01 11:34:58,540 musegan.train        INFO     Running sampler
+2018-12-01 11:34:59,911 musegan.train        INFO     Running evaluation
+2018-12-01 11:42:50,253 musegan.train        INFO     step=9200, dis_loss=-4.5382E+00, gen_loss=-4.7333E+01
+2018-12-01 11:42:50,254 musegan.train        INFO     Running sampler
+2018-12-01 11:42:51,525 musegan.train        INFO     Running evaluation
+2018-12-01 11:50:42,201 musegan.train        INFO     step=9300, dis_loss=-4.3227E+00, gen_loss=-5.3953E+01
+2018-12-01 11:50:42,201 musegan.train        INFO     Running sampler
+2018-12-01 11:50:43,514 musegan.train        INFO     Running evaluation
+2018-12-01 11:58:33,614 musegan.train        INFO     step=9400, dis_loss=-4.2580E+00, gen_loss=-5.8809E+01
+2018-12-01 11:58:33,614 musegan.train        INFO     Running sampler
+2018-12-01 11:58:34,908 musegan.train        INFO     Running evaluation
+2018-12-01 12:06:27,594 musegan.train        INFO     step=9500, dis_loss=-4.4937E+00, gen_loss=-5.3242E+01
+2018-12-01 12:06:27,595 musegan.train        INFO     Running sampler
+2018-12-01 12:06:28,908 musegan.train        INFO     Running evaluation
+2018-12-01 12:14:19,200 musegan.train        INFO     step=9600, dis_loss=-4.4565E+00, gen_loss=-4.7547E+01
+2018-12-01 12:14:19,200 musegan.train        INFO     Running sampler
+2018-12-01 12:14:20,657 musegan.train        INFO     Running evaluation
+2018-12-01 12:22:11,039 musegan.train        INFO     step=9700, dis_loss=-5.1800E+00, gen_loss=-5.7424E+01
+2018-12-01 12:22:11,040 musegan.train        INFO     Running sampler
+2018-12-01 12:22:12,416 musegan.train        INFO     Running evaluation
+2018-12-01 12:30:03,521 musegan.train        INFO     step=9800, dis_loss=-3.3694E+00, gen_loss=-5.3037E+01
+2018-12-01 12:30:03,521 musegan.train        INFO     Running sampler
+2018-12-01 12:30:05,017 musegan.train        INFO     Running evaluation
+2018-12-01 12:37:55,158 musegan.train        INFO     step=9900, dis_loss=-4.7336E+00, gen_loss=-5.5170E+01
+2018-12-01 12:37:55,158 musegan.train        INFO     Running sampler
+2018-12-01 12:37:56,319 musegan.train        INFO     Running evaluation
+2018-12-01 12:45:48,949 musegan.train        INFO     step=10000, dis_loss=-3.9160E+00, gen_loss=-5.5230E+01
+2018-12-01 12:45:48,950 musegan.train        INFO     Running sampler
+2018-12-01 12:45:50,299 musegan.train        INFO     Running evaluation
+2018-12-01 12:53:40,717 musegan.train        INFO     step=10100, dis_loss=-4.6355E+00, gen_loss=-5.4622E+01
+2018-12-01 12:53:40,717 musegan.train        INFO     Running sampler
+2018-12-01 12:53:42,087 musegan.train        INFO     Running evaluation
+2018-12-01 13:01:32,640 musegan.train        INFO     step=10200, dis_loss=-3.7113E+00, gen_loss=-5.4992E+01
+2018-12-01 13:01:32,640 musegan.train        INFO     Running sampler
+2018-12-01 13:01:34,315 musegan.train        INFO     Running evaluation
+2018-12-01 13:09:24,197 musegan.train        INFO     step=10300, dis_loss=-4.2672E+00, gen_loss=-5.6317E+01
+2018-12-01 13:09:24,198 musegan.train        INFO     Running sampler
+2018-12-01 13:09:25,530 musegan.train        INFO     Running evaluation
+2018-12-01 13:17:16,035 musegan.train        INFO     step=10400, dis_loss=-4.2824E+00, gen_loss=-6.2512E+01
+2018-12-01 13:17:16,035 musegan.train        INFO     Running sampler
+2018-12-01 13:17:17,245 musegan.train        INFO     Running evaluation
+2018-12-01 13:25:09,476 musegan.train        INFO     step=10500, dis_loss=-4.8273E+00, gen_loss=-6.0221E+01
+2018-12-01 13:25:09,476 musegan.train        INFO     Running sampler
+2018-12-01 13:25:10,828 musegan.train        INFO     Running evaluation
+2018-12-01 13:33:01,079 musegan.train        INFO     step=10600, dis_loss=-4.4009E+00, gen_loss=-6.0038E+01
+2018-12-01 13:33:01,079 musegan.train        INFO     Running sampler
+2018-12-01 13:33:02,341 musegan.train        INFO     Running evaluation
+2018-12-01 13:40:52,722 musegan.train        INFO     step=10700, dis_loss=-4.2358E+00, gen_loss=-5.9444E+01
+2018-12-01 13:40:52,723 musegan.train        INFO     Running sampler
+2018-12-01 13:40:53,935 musegan.train        INFO     Running evaluation
+2018-12-01 13:48:44,394 musegan.train        INFO     step=10800, dis_loss=-3.9980E+00, gen_loss=-5.5719E+01
+2018-12-01 13:48:44,394 musegan.train        INFO     Running sampler
+2018-12-01 13:48:45,698 musegan.train        INFO     Running evaluation
+2018-12-01 13:56:35,718 musegan.train        INFO     step=10900, dis_loss=-4.2219E+00, gen_loss=-6.2108E+01
+2018-12-01 13:56:35,718 musegan.train        INFO     Running sampler
+2018-12-01 13:56:37,017 musegan.train        INFO     Running evaluation
+2018-12-01 14:04:29,389 musegan.train        INFO     step=11000, dis_loss=-3.7422E+00, gen_loss=-5.6641E+01
+2018-12-01 14:04:29,390 musegan.train        INFO     Running sampler
+2018-12-01 14:04:30,648 musegan.train        INFO     Running evaluation
+2018-12-01 14:12:21,360 musegan.train        INFO     step=11100, dis_loss=-3.8973E+00, gen_loss=-5.7608E+01
+2018-12-01 14:12:21,360 musegan.train        INFO     Running sampler
+2018-12-01 14:12:22,817 musegan.train        INFO     Running evaluation
+2018-12-01 14:20:13,098 musegan.train        INFO     step=11200, dis_loss=-3.7804E+00, gen_loss=-6.2445E+01
+2018-12-01 14:20:13,098 musegan.train        INFO     Running sampler
+2018-12-01 14:20:14,459 musegan.train        INFO     Running evaluation
+2018-12-01 14:28:05,452 musegan.train        INFO     step=11300, dis_loss=-4.5755E+00, gen_loss=-6.0695E+01
+2018-12-01 14:28:05,452 musegan.train        INFO     Running sampler
+2018-12-01 14:28:06,952 musegan.train        INFO     Running evaluation
+2018-12-01 14:35:56,838 musegan.train        INFO     step=11400, dis_loss=-5.3936E+00, gen_loss=-5.9639E+01
+2018-12-01 14:35:56,839 musegan.train        INFO     Running sampler
+2018-12-01 14:35:58,049 musegan.train        INFO     Running evaluation
+2018-12-01 14:43:50,412 musegan.train        INFO     step=11500, dis_loss=-4.4250E+00, gen_loss=-6.4120E+01
+2018-12-01 14:43:50,412 musegan.train        INFO     Running sampler
+2018-12-01 14:43:51,621 musegan.train        INFO     Running evaluation
+2018-12-01 14:51:38,487 musegan.train        INFO     step=11600, dis_loss=-4.1994E+00, gen_loss=-6.2582E+01
+2018-12-01 14:51:38,488 musegan.train        INFO     Running sampler
+2018-12-01 14:51:39,909 musegan.train        INFO     Running evaluation
+2018-12-01 14:59:26,138 musegan.train        INFO     step=11700, dis_loss=-6.6500E+00, gen_loss=-6.9116E+01
+2018-12-01 14:59:26,139 musegan.train        INFO     Running sampler
+2018-12-01 14:59:27,648 musegan.train        INFO     Running evaluation
+2018-12-01 15:07:13,941 musegan.train        INFO     step=11800, dis_loss=-3.9771E+00, gen_loss=-6.5395E+01
+2018-12-01 15:07:13,941 musegan.train        INFO     Running sampler
+2018-12-01 15:07:15,213 musegan.train        INFO     Running evaluation
+2018-12-01 15:15:02,224 musegan.train        INFO     step=11900, dis_loss=-3.9118E+00, gen_loss=-6.7973E+01
+2018-12-01 15:15:02,224 musegan.train        INFO     Running sampler
+2018-12-01 15:15:03,506 musegan.train        INFO     Running evaluation
+2018-12-01 15:22:53,400 musegan.train        INFO     step=12000, dis_loss=-4.5443E+00, gen_loss=-6.7278E+01
+2018-12-01 15:22:53,401 musegan.train        INFO     Running sampler
+2018-12-01 15:22:54,720 musegan.train        INFO     Running evaluation
+2018-12-01 15:30:43,391 musegan.train        INFO     step=12100, dis_loss=-5.2257E+00, gen_loss=-6.8212E+01
+2018-12-01 15:30:43,392 musegan.train        INFO     Running sampler
+2018-12-01 15:30:44,750 musegan.train        INFO     Running evaluation
+2018-12-01 15:38:31,520 musegan.train        INFO     step=12200, dis_loss=-5.1662E+00, gen_loss=-6.6748E+01
+2018-12-01 15:38:31,520 musegan.train        INFO     Running sampler
+2018-12-01 15:38:33,070 musegan.train        INFO     Running evaluation
+2018-12-01 15:46:20,518 musegan.train        INFO     step=12300, dis_loss=-4.0295E+00, gen_loss=-6.7549E+01
+2018-12-01 15:46:20,518 musegan.train        INFO     Running sampler
+2018-12-01 15:46:22,063 musegan.train        INFO     Running evaluation
+2018-12-01 15:54:09,482 musegan.train        INFO     step=12400, dis_loss=-4.1849E+00, gen_loss=-7.0480E+01
+2018-12-01 15:54:09,482 musegan.train        INFO     Running sampler
+2018-12-01 15:54:10,859 musegan.train        INFO     Running evaluation
+2018-12-01 16:02:00,075 musegan.train        INFO     step=12500, dis_loss=-3.9342E+00, gen_loss=-6.9390E+01
+2018-12-01 16:02:00,076 musegan.train        INFO     Running sampler
+2018-12-01 16:02:01,509 musegan.train        INFO     Running evaluation
+2018-12-01 16:09:48,828 musegan.train        INFO     step=12600, dis_loss=-5.2223E+00, gen_loss=-7.3752E+01
+2018-12-01 16:09:48,828 musegan.train        INFO     Running sampler
+2018-12-01 16:09:50,231 musegan.train        INFO     Running evaluation
+2018-12-01 16:17:37,479 musegan.train        INFO     step=12700, dis_loss=-4.7631E+00, gen_loss=-6.7420E+01
+2018-12-01 16:17:37,479 musegan.train        INFO     Running sampler
+2018-12-01 16:17:38,869 musegan.train        INFO     Running evaluation
+2018-12-01 16:25:25,791 musegan.train        INFO     step=12800, dis_loss=-3.3345E+00, gen_loss=-6.7118E+01
+2018-12-01 16:25:25,791 musegan.train        INFO     Running sampler
+2018-12-01 16:25:27,209 musegan.train        INFO     Running evaluation
+2018-12-01 16:33:15,192 musegan.train        INFO     step=12900, dis_loss=-4.5288E+00, gen_loss=-6.8941E+01
+2018-12-01 16:33:15,192 musegan.train        INFO     Running sampler
+2018-12-01 16:33:16,598 musegan.train        INFO     Running evaluation
+2018-12-01 16:41:06,222 musegan.train        INFO     step=13000, dis_loss=-4.8987E+00, gen_loss=-7.0351E+01
+2018-12-01 16:41:06,223 musegan.train        INFO     Running sampler
+2018-12-01 16:41:07,727 musegan.train        INFO     Running evaluation
+2018-12-01 16:48:55,289 musegan.train        INFO     step=13100, dis_loss=-3.8054E+00, gen_loss=-7.2075E+01
+2018-12-01 16:48:55,290 musegan.train        INFO     Running sampler
+2018-12-01 16:48:56,794 musegan.train        INFO     Running evaluation
+2018-12-01 16:56:44,218 musegan.train        INFO     step=13200, dis_loss=-4.8148E+00, gen_loss=-7.0830E+01
+2018-12-01 16:56:44,219 musegan.train        INFO     Running sampler
+2018-12-01 16:56:45,571 musegan.train        INFO     Running evaluation
+2018-12-01 17:04:33,264 musegan.train        INFO     step=13300, dis_loss=-3.8144E+00, gen_loss=-7.1983E+01
+2018-12-01 17:04:33,264 musegan.train        INFO     Running sampler
+2018-12-01 17:04:34,550 musegan.train        INFO     Running evaluation
+2018-12-01 17:12:22,235 musegan.train        INFO     step=13400, dis_loss=-3.9247E+00, gen_loss=-6.9605E+01
+2018-12-01 17:12:22,235 musegan.train        INFO     Running sampler
+2018-12-01 17:12:23,625 musegan.train        INFO     Running evaluation
+2018-12-01 17:20:13,256 musegan.train        INFO     step=13500, dis_loss=-5.5775E+00, gen_loss=-7.5941E+01
+2018-12-01 17:20:13,256 musegan.train        INFO     Running sampler
+2018-12-01 17:20:14,532 musegan.train        INFO     Running evaluation
+2018-12-01 17:28:02,467 musegan.train        INFO     step=13600, dis_loss=-5.5579E+00, gen_loss=-6.7051E+01
+2018-12-01 17:28:02,468 musegan.train        INFO     Running sampler
+2018-12-01 17:28:04,326 musegan.train        INFO     Running evaluation
+2018-12-01 17:35:52,288 musegan.train        INFO     step=13700, dis_loss=-4.7521E+00, gen_loss=-7.3810E+01
+2018-12-01 17:35:52,288 musegan.train        INFO     Running sampler
+2018-12-01 17:35:54,035 musegan.train        INFO     Running evaluation
+2018-12-01 17:43:41,620 musegan.train        INFO     step=13800, dis_loss=-4.6238E+00, gen_loss=-7.4655E+01
+2018-12-01 17:43:41,620 musegan.train        INFO     Running sampler
+2018-12-01 17:43:43,141 musegan.train        INFO     Running evaluation
+2018-12-01 17:51:30,296 musegan.train        INFO     step=13900, dis_loss=-3.5979E+00, gen_loss=-7.2174E+01
+2018-12-01 17:51:30,296 musegan.train        INFO     Running sampler
+2018-12-01 17:51:31,664 musegan.train        INFO     Running evaluation
+2018-12-01 17:59:20,684 musegan.train        INFO     step=14000, dis_loss=-5.3194E+00, gen_loss=-7.1771E+01
+2018-12-01 17:59:20,684 musegan.train        INFO     Running sampler
+2018-12-01 17:59:22,053 musegan.train        INFO     Running evaluation
+2018-12-01 18:07:09,311 musegan.train        INFO     step=14100, dis_loss=-4.9895E+00, gen_loss=-7.3523E+01
+2018-12-01 18:07:09,312 musegan.train        INFO     Running sampler
+2018-12-01 18:07:10,793 musegan.train        INFO     Running evaluation
+2018-12-01 18:14:56,740 musegan.train        INFO     step=14200, dis_loss=-5.7909E+00, gen_loss=-7.4849E+01
+2018-12-01 18:14:56,740 musegan.train        INFO     Running sampler
+2018-12-01 18:14:58,260 musegan.train        INFO     Running evaluation
+2018-12-01 18:22:45,687 musegan.train        INFO     step=14300, dis_loss=-4.1230E+00, gen_loss=-7.8713E+01
+2018-12-01 18:22:45,687 musegan.train        INFO     Running sampler
+2018-12-01 18:22:47,296 musegan.train        INFO     Running evaluation
+2018-12-01 18:30:35,107 musegan.train        INFO     step=14400, dis_loss=-4.8671E+00, gen_loss=-7.8447E+01
+2018-12-01 18:30:35,108 musegan.train        INFO     Running sampler
+2018-12-01 18:30:36,802 musegan.train        INFO     Running evaluation
+2018-12-01 18:38:24,310 musegan.train        INFO     step=14500, dis_loss=-4.3742E+00, gen_loss=-7.4322E+01
+2018-12-01 18:38:24,311 musegan.train        INFO     Running sampler
+2018-12-01 18:38:25,978 musegan.train        INFO     Running evaluation
+2018-12-01 18:46:13,673 musegan.train        INFO     step=14600, dis_loss=-4.8613E+00, gen_loss=-7.2481E+01
+2018-12-01 18:46:13,674 musegan.train        INFO     Running sampler
+2018-12-01 18:46:15,597 musegan.train        INFO     Running evaluation
+2018-12-01 18:54:02,908 musegan.train        INFO     step=14700, dis_loss=-4.3353E+00, gen_loss=-7.9829E+01
+2018-12-01 18:54:02,908 musegan.train        INFO     Running sampler
+2018-12-01 18:54:04,303 musegan.train        INFO     Running evaluation
+2018-12-01 19:01:51,166 musegan.train        INFO     step=14800, dis_loss=-5.5617E+00, gen_loss=-7.8290E+01
+2018-12-01 19:01:51,167 musegan.train        INFO     Running sampler
+2018-12-01 19:01:52,802 musegan.train        INFO     Running evaluation
+2018-12-01 19:09:39,818 musegan.train        INFO     step=14900, dis_loss=-4.6316E+00, gen_loss=-7.8965E+01
+2018-12-01 19:09:39,819 musegan.train        INFO     Running sampler
+2018-12-01 19:09:41,451 musegan.train        INFO     Running evaluation
+2018-12-01 19:17:30,407 musegan.train        INFO     step=15000, dis_loss=-4.6121E+00, gen_loss=-7.6396E+01
+2018-12-01 19:17:30,407 musegan.train        INFO     Running sampler
+2018-12-01 19:17:32,047 musegan.train        INFO     Running evaluation
+2018-12-01 19:17:35,318 musegan.train        INFO     Training end

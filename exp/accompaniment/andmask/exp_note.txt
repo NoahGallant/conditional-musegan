@@ -1,0 +1,3 @@
+Track-conditional model using custom conditional tracks (specifically the and mask of all the instruments) as conditions
+
+Model will be trained for 5000 steps

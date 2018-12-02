@@ -1,0 +1,6 @@
+model_checkpoint_path: "/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/model/model.ckpt-90450"
+all_model_checkpoint_paths: "/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/model/model.ckpt-81000"
+all_model_checkpoint_paths: "/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/model/model.ckpt-84000"
+all_model_checkpoint_paths: "/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/model/model.ckpt-87000"
+all_model_checkpoint_paths: "/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/model/model.ckpt-90000"
+all_model_checkpoint_paths: "/home/alm2255/musicGAN/conditional-musegan/exp/accompaniment/andmask_15000/model/model.ckpt-90450"

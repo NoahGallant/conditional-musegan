@@ -1,0 +1,6 @@
+2018-11-30 04:48:19,288 musegan.model        INFO     Building model.
+2018-11-30 04:48:19,296 musegan.model        INFO     Building training nodes.
+2018-11-30 04:48:22,391 musegan.model        INFO     Building losses.
+2018-11-30 04:48:23,544 musegan.model        INFO     Building training ops.
+2018-11-30 04:48:36,182 musegan.model        INFO     Building summaries.
+2018-11-30 04:48:42,729 musegan.model        INFO     Building prediction nodes.
